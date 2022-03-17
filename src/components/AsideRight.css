@@ -1,0 +1,39 @@
+@media only screen and (min-width: 768px) {
+  .w-fixed-25-vw {
+    width: 250px !important;
+  }
+}
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+  .w-fixed-25-vw {
+    width: 200px !important;
+  }
+}
+#react-logo-ID-e6p7po9o70sf76f7 {
+  animation: rotateReact 15s linear infinite;
+  z-index: 1;
+}
+@keyframes rotateReact {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+#bs-logo-ID-e7878y7h69 {
+  /* box-shadow: inset 0px 0px 40px 300px #7e11f6 !important; */
+  animation: bsAnimate 5s linear infinite;
+  border-radius: 60px;
+  border: 0px solid white;
+}
+@keyframes bsAnimate {
+  0%,
+  100% {
+    box-shadow: 0px 0px 30px 0px #8011f600;
+    background-color: transparent;
+  }
+  50% {
+    box-shadow: 0px 0px 40px 1px #8011f69a;
+    background-color: #8011f644;
+  }
+}
