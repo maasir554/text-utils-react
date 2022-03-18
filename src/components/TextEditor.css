@@ -1,21 +1,3 @@
-#MasterSection {
-  width: 100vw;
-  height: calc(100vh - 57px);
-  overflow: auto;
-  justify-content: space-between;
-}
-#LeftWorkSpace {
-  width: 100%;
-  box-sizing: border-box;
-  overflow-y: auto !important;
-  overflow-x: hidden;
-}
-#MainRightAside {
-  height: calc(100vh- 57px);
-  overflow: scroll;
-  display: none !important;
-}
-
 /*my Buttons for themes */
 .btn-orange {
   background-color: orange !important;
@@ -66,22 +48,5 @@
 
 /*bg colors*/
 .bg-purple {
-  background-color: rgba(196, 68, 255, 0.1);
-}
-.bg-orange {
-  background-color: rgba(255, 166, 0, 0.1);
-}
-.bg-pink {
-  background-color: rgba(255, 0, 200, 0.1);
-}
-/*Chrome Mice Extension Bug Fix*/
-#casMicLayer {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  right: 0px;
-  bottom: -100px;
-  z-index: 1 !important;
-  pointer-events: none;
-  height: 100vh !important;
+  background-color: rgba(196, 68, 255, 0.103);
 }

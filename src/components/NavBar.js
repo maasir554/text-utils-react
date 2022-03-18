@@ -1,6 +1,7 @@
 import React from "react";
 import propTypes from "prop-types";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import "./NavBar.css";
 export default function NavBar(props) {
   NavBar.propTypes = {
     NavTitle: propTypes.string.isRequired,
@@ -16,9 +17,18 @@ export default function NavBar(props) {
     actionTwo: "click link 2",
     actionThree: "click link 3",
   };
+  const DarkLightInverse = () => {
+    if (props.Mode === "light") {
+      return "dark";
+    } else {
+      return "light";
+    }
+  };
   return (
     <>
-      <nav className="sticky-top navbar navbar-expand-lg navbar-light bg-light border-bottom border-secondary border-1">
+      <nav
+        className={`sticky-top navbar navbar-expand-sm align-items-centre navbar-${props.Mode} bg-${props.Mode} border-bottom border-secondary border-1`}
+      >
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             {props.title}
@@ -34,8 +44,11 @@ export default function NavBar(props) {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <div
+            className={`collapse my-1 p-0 navbar-collapse bg-${props.Mode}`}
+            id="navbarSupportedContent"
+          >
+            <ul className="navbar-nav me-auto mb-0">
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="#">
                   {props.linkOne}
@@ -48,7 +61,7 @@ export default function NavBar(props) {
               </li>
               <li className="nav-item dropdown">
                 <a
-                  className="nav-link dropdown-toggle"
+                  className={`nav-link dropdown-toggle `}
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -56,14 +69,29 @@ export default function NavBar(props) {
                 >
                   {props.dropdownText}
                 </a>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <ul
+                  className={`dropdown-menu bg-${
+                    props.Mode
+                  } text-${DarkLightInverse()}`}
+                  aria-labelledby="navbarDropdown"
+                >
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a
+                      className={`${
+                        props.Mode
+                      }-hover-fix dropdown-item text-${DarkLightInverse()}`}
+                      href="#"
+                    >
                       {props.actionOne}
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a
+                      className={`${
+                        props.Mode
+                      }-hover-fix dropdown-item text-${DarkLightInverse()}`}
+                      href="#"
+                    >
                       {props.actionTwo}
                     </a>
                   </li>
@@ -71,39 +99,95 @@ export default function NavBar(props) {
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a
+                      className={`${
+                        props.Mode
+                      }-hover-fix dropdown-item text-${DarkLightInverse()}`}
+                      href="#"
+                    >
                       {props.actionThree}
                     </a>
                   </li>
                 </ul>
               </li>
             </ul>
-            <i class="bi bi-brightness-high-fill bg-warning py-0 px-1 rounded-pill"></i>
-            <div class="form-check form-switch mx-2">
-              <label class="form-check-label" for="flexSwitchCheckDefault">
-                <i class="bi bi-moon"></i>
-              </label>
-              <input
-                class="form-check-input"
-                type="checkbox"
-                role="switch"
-                id="flexSwitchCheckDefault"
-              />
-            </div>
-            {/*<form className="d-flex">
-              <input
-                className="form-control me-2 rounded-0"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
+            <div class="btn-group">
               <button
-                className="btn btn-outline-primary rounded-0"
-                type="submit"
+                type="button"
+                className={`my-2 btn btn-${props.Theme} py-1 px-3 me-3 text-light dropdown-toggle`}
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                id="ThemeButton"
               >
-                Search
+                Color Theme
               </button>
-            </form> */}
+              <ul
+                className={`border-${DarkLightInverse()} dropdown-menu bg-${
+                  props.Mode
+                } text-${DarkLightInverse()}`}
+                aria-labelledby="navbarDropdown"
+                id="ThemeSelector"
+              >
+                <li>
+                  <a
+                    className={`${
+                      props.Mode
+                    }-hover-fix dropdown-item text-${DarkLightInverse()}`}
+                    onClick={() => props.ThemeHandler("primary")}
+                  >
+                    Blue (default)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className={`${
+                      props.Mode
+                    }-hover-fix dropdown-item text-${DarkLightInverse()}`}
+                    onClick={() => props.ThemeHandler("purple")}
+                  >
+                    Purple
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className={`${
+                      props.Mode
+                    }-hover-fix dropdown-item text-${DarkLightInverse()}`}
+                    onClick={() => props.ThemeHandler("pink")}
+                  >
+                    Pink
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className={`${
+                      props.Mode
+                    }-hover-fix dropdown-item text-${DarkLightInverse()}`}
+                    onClick={() => props.ThemeHandler("orange")}
+                  >
+                    Orange
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className={`my-2 d-flex flex-row text-${DarkLightInverse()}`}>
+              <i className="bi bi-brightness-high-fill py-0 px-1 rounded-pill"></i>
+              <div className="form-check form-switch mx-2">
+                <label
+                  className="form-check-label"
+                  htmlFor="flexSwitchCheckDefault"
+                >
+                  <i className="bi bi-moon"></i>
+                </label>
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  id="flexSwitchCheckDefault"
+                  onClick={props.ToggleDarkMode}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </nav>

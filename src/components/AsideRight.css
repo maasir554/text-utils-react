@@ -1,11 +1,11 @@
 @media only screen and (min-width: 768px) {
   .w-fixed-25-vw {
-    width: 250px !important;
+    width: 330px !important;
   }
 }
 @media only screen and (min-width: 0px) and (max-width: 767px) {
   .w-fixed-25-vw {
-    width: 200px !important;
+    width: 250px !important;
   }
 }
 #react-logo-ID-e6p7po9o70sf76f7 {

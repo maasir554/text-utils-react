@@ -1,0 +1,21 @@
+.dark-hover-fix:hover {
+  background-color: rgb(70, 70, 70) !important;
+  color: white !important;
+}
+.light-hover-fix:hover {
+  background-color: #e9ecef !important;
+  color: black;
+}
+nav {
+  height: 57px;
+}
+#navbarSupportedContent {
+  z-index: 100;
+}
+
+#ThemeButton {
+  text-shadow: 0px 0px 18px rgba(0, 0, 0, 0.514);
+}
+#ThemeSelector:hover {
+  cursor: pointer;
+}
