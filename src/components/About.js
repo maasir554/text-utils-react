@@ -25,23 +25,48 @@ export default function About(props) {
       </div>
 
       <div
-        className={`rounded-3 border border-2 border-${
+        className={`rounded-3 border mb-3 border-2 border-${
           props.Theme
         } container p-3 bg-opacity-10 bg-${props.Theme} text-${() =>
           props.DarkLightInverse}`}
       >
         <h2 className="text-center">Our Vision</h2>
         <p className="text-center p-4">
-          We want to make{" "}
+          This Project will make{" "}
           <span className="fw-bold text-decoration-underline">
             text-editing
           </span>{" "}
-          and <span className="fw-bold text-decoration-underline">reading</span>{" "}
-          fun and easy to do. with our app, you can really find out how many
-          minutes an article wil require you to read it.
+          and{" "}
+          <span className="fw-bold text-decoration-underline">
+            manupulating
+          </span>{" "}
+          fun and easy to do. with TextUtils text analysis and manupulation will
+          be simplified and more efficient.
         </p>
         <hr />
-        <p className="text-center">We simply make time management easier.</p>
+        <p className="text-center">
+          TextUtils will make text manupulation easier.
+        </p>
+      </div>
+      <div
+        className={`rounded-3 border mb-3 border-2 border-${
+          props.Theme
+        } container p-3 bg-opacity-10 bg-${props.Theme} text-${() =>
+          props.DarkLightInverse}`}
+      >
+        <h2 className="text-center">Project To be continued...</h2>
+        <p className="text-center p-4">
+          In future, this project will be modified to a{" "}
+          <span className="fw-bold text-decoration-underline">
+            Rich Text Editor
+          </span>{" "}
+          After i learn complete MERN stack or MEAN stack , and , most
+          importantly, advanced JavaScript
+        </p>
+        <hr />
+        <p className="text-center">
+          similar projects avalible on my Github Page github.com/maasir554
+        </p>
       </div>
     </>
   );

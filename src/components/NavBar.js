@@ -25,7 +25,7 @@ export default function NavBar(props) {
       return "light";
     }
   };
-  const [ThemeColorOut, SetThemeColorOut] = useState("blue");
+  const [ThemeColorOut, SetThemeColorOut] = useState("#0d6efc");
   function UpdateNavActiveBorderTheme(themeColor) {
     SetThemeColorOut(themeColor);
   }
@@ -167,7 +167,7 @@ export default function NavBar(props) {
                     }-hover-fix dropdown-item text-${DarkLightInverse()}`}
                     onClick={() => {
                       props.ThemeHandler("primary");
-                      UpdateNavActiveBorderTheme("blue");
+                      UpdateNavActiveBorderTheme("#0d6efc");
                     }}
                   >
                     Blue (default)
