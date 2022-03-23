@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import propTypes from "prop-types";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./NavBar.css";
+import { Link } from "react-router-dom";
 export default function NavBar(props) {
   NavBar.propTypes = {
     NavTitle: propTypes.string.isRequired,
@@ -24,15 +25,35 @@ export default function NavBar(props) {
       return "light";
     }
   };
+  const [ThemeColorOut, SetThemeColorOut] = useState("#0d6efc");
+  function UpdateNavActiveBorderTheme(themeColor) {
+    SetThemeColorOut(themeColor);
+  }
+  const NavHomeActive = () => {
+    let NavHome = document.getElementById("NavHome");
+    let NavAbout = document.getElementById("NavAbout");
+    NavAbout.classList.remove("active");
+    NavHome.classList.add("active");
+    NavHome.style.borderBottom = `2px solid ${ThemeColorOut}`;
+    NavAbout.style.borderBottom = `2px solid transparent`;
+  };
+  const NavAboutActive = () => {
+    let NavAbout = document.getElementById("NavAbout");
+    let NavHome = document.getElementById("NavHome");
+    NavAbout.classList.add("active");
+    NavHome.classList.remove("active");
+    NavAbout.style.borderBottom = `2px solid ${ThemeColorOut}`;
+    NavHome.style.borderBottom = `2px solid transparent`;
+  };
   return (
     <>
       <nav
         className={`sticky-top navbar navbar-expand-sm align-items-centre navbar-${props.Mode} bg-${props.Mode} border-bottom border-secondary border-1`}
       >
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             {props.title}
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -50,14 +71,25 @@ export default function NavBar(props) {
           >
             <ul className="navbar-nav me-auto mb-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <Link
+                  className="nav-link "
+                  aria-current="page"
+                  to="/home"
+                  id="NavHome"
+                  onClick={NavHomeActive}
+                >
                   {props.linkOne}
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link
+                  className="nav-link"
+                  to="/about"
+                  id="NavAbout"
+                  onClick={NavAboutActive}
+                >
                   {props.linkTwo}
-                </a>
+                </Link>
               </li>
               <li className="nav-item dropdown">
                 <a
@@ -133,7 +165,10 @@ export default function NavBar(props) {
                     className={`${
                       props.Mode
                     }-hover-fix dropdown-item text-${DarkLightInverse()}`}
-                    onClick={() => props.ThemeHandler("primary")}
+                    onClick={() => {
+                      props.ThemeHandler("primary");
+                      UpdateNavActiveBorderTheme("#0d6efc");
+                    }}
                   >
                     Blue (default)
                   </a>
@@ -143,7 +178,10 @@ export default function NavBar(props) {
                     className={`${
                       props.Mode
                     }-hover-fix dropdown-item text-${DarkLightInverse()}`}
-                    onClick={() => props.ThemeHandler("purple")}
+                    onClick={() => {
+                      props.ThemeHandler("purple");
+                      UpdateNavActiveBorderTheme("purple");
+                    }}
                   >
                     Purple
                   </a>
@@ -153,7 +191,10 @@ export default function NavBar(props) {
                     className={`${
                       props.Mode
                     }-hover-fix dropdown-item text-${DarkLightInverse()}`}
-                    onClick={() => props.ThemeHandler("pink")}
+                    onClick={() => {
+                      props.ThemeHandler("pink");
+                      UpdateNavActiveBorderTheme("pink");
+                    }}
                   >
                     Pink
                   </a>
@@ -163,7 +204,10 @@ export default function NavBar(props) {
                     className={`${
                       props.Mode
                     }-hover-fix dropdown-item text-${DarkLightInverse()}`}
-                    onClick={() => props.ThemeHandler("orange")}
+                    onClick={() => {
+                      props.ThemeHandler("orange");
+                      UpdateNavActiveBorderTheme("orange");
+                    }}
                   >
                     Orange
                   </a>

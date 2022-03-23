@@ -3,10 +3,11 @@ import NavBar from "./components/NavBar";
 import AsideRight from "./components/AsideRight.js";
 import AnalyseText from "./components/AnalyseText.js";
 import { useState } from "react";
+import About from "./components/About";
 import TextEditor from "./components/TextEditor.js";
 import PreviewBox from "./components/PreviewBox";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   {
@@ -125,14 +126,15 @@ function App() {
   };
   //--------------------------------------------------------------------------------------------------------
   //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-  //::::::::::::::::::::::::::::::-------THEME Functions starts-------::::::::::::::::::::::::::::::::::::::
+  //::::::::::::::::::::::::::::::-------THEME Functions ENDs-------::::::::::::::::::::::::::::::::::::::
   //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
   //---------------------------------------------------------------------------------------------------------
 
   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
   return (
     <>
-      <NavBar
+      {/* <NavBar
         title="TextUtils"
         linkOne="Home"
         linkTwo="About"
@@ -175,7 +177,177 @@ function App() {
             <AnalyseText Mode={Mode} text={text} Theme={Theme} />
           }
         />
-      </section>
+      </section> */}
+
+      <Router>
+        <NavBar
+          title="TextUtils"
+          linkOne="Home"
+          linkTwo="About"
+          dropdownText="More"
+          actionOne="Help"
+          actionTwo="Feedback"
+          actionThree="Community"
+          ToggleDarkMode={ToggleDarkMode}
+          Mode={Mode}
+          ThemeHandler={ThemeHandler}
+          Theme={Theme}
+        />
+        <section
+          id="MasterSection"
+          className={`d-flex flex-row p-0 bg-${Mode} text-${DarkLightInverse()}`}
+        >
+          <Routes>
+            {/* <Route path="/">
+            <>
+              <div
+                id="LeftWorkSpace"
+                className={`m-0 p-4 text-${DarkLightInverse()}`}
+              >
+                <TextEditor
+                  text={text}
+                  handleOnChange={handleOnChange}
+                  toUcase={toUcase}
+                  toLcase={toLcase}
+                  EmbedDummyText={EmbedDummyText}
+                  DeleteDummyText={DeleteDummyText}
+                  ClearText={ClearText}
+                  FontChanger={FontChanger}
+                  Mode={Mode}
+                  Theme={Theme}
+                />
+                <AnalyseText Theme={Theme} text={text} Mode={Mode} />
+                <PreviewBox text={text} Mode={Mode} Theme={Theme} />
+              </div>
+              <AsideRight
+                Mode={Mode}
+                Theme={Theme}
+                componentInside={
+                  <AnalyseText Mode={Mode} text={text} Theme={Theme} />
+                }
+              />
+            </>
+          </Route>
+          <Route path="/home">
+            <>
+              <div
+                id="LeftWorkSpace"
+                className={`m-0 p-4 text-${DarkLightInverse()}`}
+              >
+                <TextEditor
+                  text={text}
+                  handleOnChange={handleOnChange}
+                  toUcase={toUcase}
+                  toLcase={toLcase}
+                  EmbedDummyText={EmbedDummyText}
+                  DeleteDummyText={DeleteDummyText}
+                  ClearText={ClearText}
+                  FontChanger={FontChanger}
+                  Mode={Mode}
+                  Theme={Theme}
+                />
+                <AnalyseText Theme={Theme} text={text} Mode={Mode} />
+                <PreviewBox text={text} Mode={Mode} Theme={Theme} />
+              </div>
+              <AsideRight
+                Mode={Mode}
+                Theme={Theme}
+                componentInside={
+                  <AnalyseText Mode={Mode} text={text} Theme={Theme} />
+                }
+              />
+            </>
+          </Route> */}
+
+            <Route
+              path="/about"
+              element={
+                <>
+                  <div
+                    id="LeftWorkSpace"
+                    className={`m-0 p-4 text-${DarkLightInverse()}`}
+                  >
+                    <About
+                      Theme={Theme}
+                      DarkLightInverse={DarkLightInverse()}
+                      Mode={Mode}
+                    />
+                  </div>
+
+                  <AsideRight Mode={Mode} Theme={Theme} componentInside={""} />
+                </>
+              }
+            ></Route>
+
+            <Route
+              path="/"
+              element={
+                <>
+                  <div
+                    id="LeftWorkSpace"
+                    className={`m-0 p-4 text-${DarkLightInverse()}`}
+                  >
+                    <TextEditor
+                      text={text}
+                      handleOnChange={handleOnChange}
+                      toUcase={toUcase}
+                      toLcase={toLcase}
+                      EmbedDummyText={EmbedDummyText}
+                      DeleteDummyText={DeleteDummyText}
+                      ClearText={ClearText}
+                      FontChanger={FontChanger}
+                      Mode={Mode}
+                      Theme={Theme}
+                    />
+                    <AnalyseText Theme={Theme} text={text} Mode={Mode} />
+                    <PreviewBox text={text} Mode={Mode} Theme={Theme} />
+                  </div>
+                  <AsideRight
+                    Mode={Mode}
+                    Theme={Theme}
+                    componentInside={
+                      <AnalyseText Mode={Mode} text={text} Theme={Theme} />
+                    }
+                  />
+                </>
+              }
+            ></Route>
+            <Route
+              path="/home"
+              element={
+                <>
+                  <div
+                    id="LeftWorkSpace"
+                    className={`m-0 p-4 text-${DarkLightInverse()}`}
+                  >
+                    <TextEditor
+                      text={text}
+                      handleOnChange={handleOnChange}
+                      toUcase={toUcase}
+                      toLcase={toLcase}
+                      EmbedDummyText={EmbedDummyText}
+                      DeleteDummyText={DeleteDummyText}
+                      ClearText={ClearText}
+                      FontChanger={FontChanger}
+                      Mode={Mode}
+                      Theme={Theme}
+                    />
+                    <AnalyseText Theme={Theme} text={text} Mode={Mode} />
+                    <PreviewBox text={text} Mode={Mode} Theme={Theme} />
+                  </div>
+                  <AsideRight
+                    Mode={Mode}
+                    Theme={Theme}
+                    componentInside={
+                      <AnalyseText Mode={Mode} text={text} Theme={Theme} />
+                    }
+                  />
+                </>
+              }
+            ></Route>
+          </Routes>
+        </section>
+      </Router>
     </>
   );
 }

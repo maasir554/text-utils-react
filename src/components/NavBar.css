@@ -19,3 +19,18 @@ nav {
 #ThemeSelector:hover {
   cursor: pointer;
 }
+.nav-active-custom-primary {
+  border-bottom: 2px solid #0d6efc !important;
+}
+.nav-active-custom-purple {
+  border-bottom: 2px solid purple !important;
+}
+.nav-active-custom-pink {
+  border-bottom: 2px solid pink !important;
+}
+.nav-active-custom-orange {
+  border-bottom: 2px solid orange !important;
+}
+.nav-active-custom-light {
+  border-bottom: 2px solid white !important;
+}
