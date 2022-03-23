@@ -1,8 +1,8 @@
 
-#App's Website (hosted on Netlify) :
+# App's Website (hosted on Netlify) :
 https://maasir554-text-utils-react.netlify.app/
 
-#**First App with ReactJS**
+# **First App with ReactJS**
 
 
 
